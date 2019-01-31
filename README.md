@@ -79,7 +79,6 @@ case sensorData := <-c:
 |-|-|-|
 |Temperature|float64|current temperature data of the sensor
 ## Learn IR Code
-TODO: should we change SDK to long or short IR instead of AC / AV?
 ```go
 c, err := device.LearnAV()
 // or 
@@ -111,3 +110,13 @@ case learnData := <-c:
 |Success|bool|is learn operation success
 |HaveData|bool|is there any data learnt
 |Data|string|learn data in hex string
+
+### Emit LearnData
+You find can few of sample learn data at [here](./example/learn_data.md)
+```go
+LearnData := ""
+if err := device.EmitData(LearnData); err != nil {
+    // err.Error()
+    return
+}
+```
